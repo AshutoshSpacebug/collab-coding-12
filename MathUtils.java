@@ -62,3 +62,27 @@ public class MathUtilsTest {
      * Test Fibonacci function with base cases.
      * Author: Admin (Starter Test)
      */
+@Test
+    public void testFibonacciBaseCases() {
+        assertEquals("Fibonacci(0) should be 0", 0, MathUtils.fibonacci(0));
+        assertEquals("Fibonacci(1) should be 1", 1, MathUtils.fibonacci(1));
+    }
+
+    /**
+     * Test Fibonacci function with small positive numbers.
+     * Author: Admin (Starter Test)
+     */
+    @Test
+    public void testFibonacciSmallNumbers() {
+        long[] expectedValues = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
+
+        for (int i = 0; i < expectedValues.length; i++) {
+            assertEquals("Fibonacci(" + i + ") failed",
+                    expectedValues[i], MathUtils.fibonacci(i));
+        }
+    }
+
+    /**
+     * Test Fibonacci function with larger numbers.
+     * Author: Admin (Starter Test)
+     */
