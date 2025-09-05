@@ -121,3 +121,111 @@ public class MathUtilsTest {
      */
     // public static BigInteger factorial(int n) {
     //     // TODO: Implement
+// TODO: Add tests for your functions here following this
+template:
+/*
+* @Test
+* public void testYourFunctionNameBasicCase() {
+* // Test your function with basic inputs
+* // Author: Your Name
+* ReturnType result =
+MathUtils.yourFunctionName(testInput);
+* ReturnType expected = expectedOutput;
+* assertEquals("Description of what should happen",
+expected, result);
+* }
+*
+* @Test
+* public void testYourFunctionNameEdgeCases() {
+* // Test your function with edge cases
+* // Author: Your Name
+* // Test with edge cases like zero, negative numbers, empty
+input, etc.
+* }
+*
+
+* @Test(expected = ExceptionType.class)
+* public void testYourFunctionNameException() {
+* // Test that your function throws appropriate exceptions
+* // Author: Your Name
+* MathUtils.yourFunctionName(invalidInput);
+* }
+*/
+
+// PLACEHOLDER TEST METHODS - Uncomment and
+implement when functions are added:
+/*
+@Test
+public void testGcdBasicCases() {
+// Test GCD function with basic cases
+// TODO: Implement when gcd function is added
+// Author: [Your Name Here]
+}
+@Test
+public void testIsPrimeSmallPrimes() {
+// Test prime checking with small prime numbers
+// TODO: Implement when isPrime function is added
+// Author: [Your Name Here]
+}
+@Test
+public void testFactorialSmallNumbers() {
+// Test factorial with small numbers
+// TODO: Implement when factorial function is added
+// Author: [Your Name Here]
+}
+
+@Test
+public void testPowerModBasicCases() {
+// Test modular exponentiation with basic cases
+// TODO: Implement when powerMod function is added
+// Author: [Your Name Here]
+}
+@Test
+public void testDigitSumPositiveNumbers() {
+// Test digit sum with positive numbers
+// TODO: Implement when digitSum function is added
+// Author: [Your Name Here]
+}
+*/
+
+// ===== UTILITY TEST METHODS =====
+
+/**
+* Helper method to test arrays for equality with descriptive
+messages.
+*
+* @param message Description of what is being tested
+* @param expected Expected array values
+* @param actual Actual array values
+*/
+private void assertArrayEquals(String message, long[]
+expected, long[] actual) {
+assertEquals(message + " - arrays should have same
+length",
+expected.length, actual.length);
+
+for (int i = 0; i < expected.length; i++) {
+assertEquals(message + " - element at index " + i,
+expected[i], actual[i]);
+}
+}
+/**
+* Helper method to measure execution time of operations.
+* Useful for performance testing of mathematical functions.
+*
+* @param operation Runnable operation to time
+* @return Execution time in milliseconds
+*/
+private long measureExecutionTime(Runnable operation) {
+long startTime = System.currentTimeMillis();
+operation.run();
+long endTime = System.currentTimeMillis();
+return endTime - startTime;
+}
+/**
+* Example performance test for Fibonacci function.
+* Author: Admin (Example)
+*/
+
+>>>>>>> main
+}
