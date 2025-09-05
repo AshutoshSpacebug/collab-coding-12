@@ -86,3 +86,38 @@ public class MathUtilsTest {
      * Test Fibonacci function with larger numbers.
      * Author: Admin (Starter Test)
      */
+  *
+     * @param a First integer
+     * @param b Second integer
+     * @return GCD of a and b
+     * @author [Your Name Here]
+     */
+    // public static int gcd(int a, int b) {
+    //     // TODO: Implement
+    //     throw new UnsupportedOperationException("Not implemented yet");
+    // }
+
+    /**
+     * Check if a number is prime.
+     * TODO: Implement primality test
+     *
+     * @param n Number to check
+     * @return true if n is prime, false otherwise
+     * @author [Your Name Here]
+     */
+    // public static boolean isPrime(int n) {
+    //     // TODO: Implement
+    //     throw new UnsupportedOperationException("Not implemented yet");
+    // }
+
+    /**
+     * Calculate factorial of a non-negative integer.
+     * TODO: Implement factorial calculation
+     *
+     * @param n Non-negative integer
+     * @return n! (n factorial)
+     * @throws IllegalArgumentException if n is negative
+     * @author [Your Name Here]
+     */
+    // public static BigInteger factorial(int n) {
+    //     // TODO: Implement
