@@ -162,12 +162,7 @@ public class MathUtils {
         System.out.println("================================");
 
         try {
-            System.out.println("Fibonacci(0): " + fibonacci(0));
-            System.out.println("Fibonacci(5): " + fibonacci(5));
-            System.out.println("Fibonacci(10): " + fibonacci(10));
-            System.out.println("Fibonacci(15): " + fibonacci(15));
-
-            System.out.println("\nReady for contributions! ");
+                        System.out.println("\nReady for contributions! ");
 
         } catch (Exception e) {
             System.err.println("Error during testing: " + e.getMessage());
