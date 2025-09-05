@@ -1,177 +1,133 @@
 /**
- * Math Utilities Library - Collaborative Project
- * ==============================================
- *
- * A collection of useful mathematical utility functions contributed by various developers.
- * Each function should be well-documented, tested, and include author attribution.
- *
- * Theme: Mathematical Utilities
- * Authors: [Contributors will add their names here]
- *
- * @version 1.0
+ * Unit Tests for Fibonacci Function
+ * =================================
+ * 
+ * Focused test class for the Fibonacci function in MathUtils.
+ * 
+ * To run this specific test class:
+ * javac -cp ".:junit-4.13.2.jar:hamcrest-core-1.3.jar" *.java
+ * java -cp ".:junit-4.13.2.jar:hamcrest-core-1.3.jar" org.junit.runner.JUnitCore FibonacciTest
  */
+
+import org.junit.Test;
+import org.junit.BeforeClass;
+import org.junit.AfterClass;
+import static org.junit.Assert.*;
 
 /**
- * A collection of mathematical utility functions.
- *
- * This class serves as a container for various mathematical operations
- * that are commonly needed but not available in the standard library.
+ * Test cases specifically for the Fibonacci function.
  */
-public class MathUtils {
+public class FibonacciTest {
 
-    /**
-     * Calculate the nth Fibonacci number using dynamic programming.
-     *
-     * The Fibonacci sequence starts with 0, 1, and each subsequent number
-     * is the sum of the two preceding ones: 0, 1, 1, 2, 3, 5, 8, 13, ...
-     *
-     * @param n The position in the Fibonacci sequence (0-indexed)
-     * @return The nth Fibonacci number
-     * @throws IllegalArgumentException if n is negative
-     *
-     * @example
-     * MathUtils.fibonacci(0)  // returns 0
-     * MathUtils.fibonacci(5)  // returns 5
-     * MathUtils.fibonacci(10) // returns 55
-     *
-     * @author Admin (Starter Function)
-     */
-    public static long fibonacci(int n) {
-        if (n < 0) {
-            throw new IllegalArgumentException("Fibonacci sequence is not defined for negative numbers");
-        }
-
-        if (n <= 1) {
-            return n;
-        }
-
-        long a = 0, b = 1;
-        for (int i = 2; i <= n; i++) {
-            long temp = a + b;
-            a = b;
-            b = temp;
-        }
-
-        return b;
+    @BeforeClass
+    public static void setUpClass() {
+        System.out.println("Starting Fibonacci function tests...");
     }
 
-    // TODO: Add your function here following the template below
-    /*
-     * TEMPLATE FOR NEW FUNCTIONS:
-     *
-     * /**
-     *  * Brief description of what the function does.
-     *  *
-     *  * Detailed description explaining the algorithm, use cases, or mathematical
-     *  * background if relevant.
-     *  *
-     *  * @param param1 Description of first parameter
-     *  * @param param2 Description of second parameter
-     *  * @return Description of return value
-     *  * @throws ExceptionType When this exception is thrown
-     *  *
-     *  * @example
-     *  * MathUtils.yourFunctionName(arg1, arg2)  // returns expected_output
-     *  *
-     *  * @author Your Name
-     *  *\/
-     * public static ReturnType yourFunctionName(ParamType1 param1, ParamType2 param2) {
-     *     // Your implementation here
-     *     return result;
-     * }
-     */
-
-    // PLACEHOLDER FUNCTIONS - Contributors can implement these or add their own:
+    @AfterClass
+    public static void tearDownClass() {
+        System.out.println("Fibonacci tests completed.");
+    }
 
     /**
-     * Calculate the Greatest Common Divisor of two integers.
-     * TODO: Implement Euclidean algorithm
-     *
-     * @param a First integer
-     * @param b Second integer
-     * @return GCD of a and b
-     * @author [Your Name Here]
+     * Test Fibonacci function with base cases.
+     * Author: Admin (Starter Test)
      */
-    // public static int gcd(int a, int b) {
-    //     // TODO: Implement
-    //     throw new UnsupportedOperationException("Not implemented yet");
-    // }
+    @Test
+    public void testFibonacciBaseCases() {
+        assertEquals("Fibonacci(0) should be 0", 0, MathUtils.fibonacci(0));
+        assertEquals("Fibonacci(1) should be 1", 1, MathUtils.fibonacci(1));
+    }
 
     /**
-     * Check if a number is prime.
-     * TODO: Implement primality test
-     *
-     * @param n Number to check
-     * @return true if n is prime, false otherwise
-     * @author [Your Name Here]
+     * Test Fibonacci function with small positive numbers.
+     * Author: Admin (Starter Test)
      */
-    // public static boolean isPrime(int n) {
-    //     // TODO: Implement
-    //     throw new UnsupportedOperationException("Not implemented yet");
-    // }
+    @Test
+    public void testFibonacciSmallNumbers() {
+        long[] expectedValues = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55};
+        
+        for (int i = 0; i < expectedValues.length; i++) {
+            assertEquals("Fibonacci(" + i + ") failed", 
+                        expectedValues[i], MathUtils.fibonacci(i));
+        }
+    }
 
     /**
-     * Calculate factorial of a non-negative integer.
-     * TODO: Implement factorial calculation
-     *
-     * @param n Non-negative integer
-     * @return n! (n factorial)
-     * @throws IllegalArgumentException if n is negative
-     * @author [Your Name Here]
+     * Test Fibonacci function with larger numbers.
+     * Author: Admin (Starter Test)
      */
-    // public static BigInteger factorial(int n) {
-    //     // TODO: Implement
-    //     throw new UnsupportedOperationException("Not implemented yet");
-    // }
+    @Test
+    public void testFibonacciLargerNumbers() {
+        assertEquals("Fibonacci(15) should be 610", 610, MathUtils.fibonacci(15));
+        assertEquals("Fibonacci(20) should be 6765", 6765, MathUtils.fibonacci(20));
+        assertEquals("Fibonacci(25) should be 75025", 75025, MathUtils.fibonacci(25));
+    }
 
     /**
-     * Calculate (base^exponent) % modulus efficiently.
-     * TODO: Implement modular exponentiation
-     *
-     * @param base Base number
-     * @param exponent Exponent
-     * @param modulus Modulus
-     * @return (base^exponent) % modulus
-     * @author [Your Name Here]
+     * Test that Fibonacci throws IllegalArgumentException for negative input.
+     * Author: Admin (Starter Test)
      */
-    // public static long powerMod(long base, long exponent, long modulus) {
-    //     // TODO: Implement
-    //     throw new UnsupportedOperationException("Not implemented yet");
-    // }
+    @Test(expected = IllegalArgumentException.class)
+    public void testFibonacciNegativeInput() {
+        MathUtils.fibonacci(-1);
+    }
 
     /**
-     * Calculate the sum of digits in a number.
-     * TODO: Implement digit sum calculation
-     *
-     * @param n Number to process
-     * @return Sum of all digits in n
-     * @author [Your Name Here]
+     * Test that Fibonacci throws IllegalArgumentException for multiple negative inputs.
+     * Author: Admin (Starter Test)
      */
-    // public static int digitSum(int n) {
-    //     // TODO: Implement
-    //     throw new UnsupportedOperationException("Not implemented yet");
-    // }
+    @Test
+    public void testFibonacciMultipleNegativeInputs() {
+        int[] negativeInputs = {-1, -5, -10, -100};
+        
+        for (int input : negativeInputs) {
+            try {
+                MathUtils.fibonacci(input);
+                fail("Expected IllegalArgumentException for input: " + input);
+            } catch (IllegalArgumentException e) {
+                // Expected behavior
+                assertTrue("Exception message should mention negative numbers", 
+                          e.getMessage().contains("negative"));
+            }
+        }
+    }
 
     /**
-     * Main method for quick testing of implemented functions.
-     *
-     * @param args Command line arguments (not used)
+     * Test Fibonacci function performance with reasonable inputs.
+     * Author: Admin (Performance Test)
      */
-    public static void main(String[] args) {
-        System.out.println("Math Utils Library - Quick Test");
-        System.out.println("================================");
+    @Test
+    public void testFibonacciPerformance() {
+        long startTime = System.currentTimeMillis();
+        
+        // Calculate Fibonacci numbers 0 through 30
+        for (int i = 0; i <= 30; i++) {
+            MathUtils.fibonacci(i);
+        }
+        
+        long endTime = System.currentTimeMillis();
+        long executionTime = endTime - startTime;
+        
+        // Should complete in reasonable time (less than 1 second)
+        assertTrue("Fibonacci calculations should complete quickly (was " + executionTime + "ms)", 
+                  executionTime < 1000);
+    }
 
-        try {
-            System.out.println("Fibonacci(0): " + fibonacci(0));
-            System.out.println("Fibonacci(5): " + fibonacci(5));
-            System.out.println("Fibonacci(10): " + fibonacci(10));
-            System.out.println("Fibonacci(15): " + fibonacci(15));
-
-            System.out.println("\nReady for contributions! ");
-
-        } catch (Exception e) {
-            System.err.println("Error during testing: " + e.getMessage());
-            e.printStackTrace();
+    /**
+     * Test Fibonacci sequence properties.
+     * Author: Admin (Mathematical Properties Test)
+     */
+    @Test
+    public void testFibonacciSequenceProperties() {
+        // Test that F(n) = F(n-1) + F(n-2) for n >= 2
+        for (int n = 2; n <= 15; n++) {
+            long fibN = MathUtils.fibonacci(n);
+            long fibN1 = MathUtils.fibonacci(n - 1);
+            long fibN2 = MathUtils.fibonacci(n - 2);
+            
+            assertEquals("Fibonacci property F(" + n + ") = F(" + (n-1) + ") + F(" + (n-2) + ")",
+                        fibN1 + fibN2, fibN);
         }
     }
 }
